@@ -66,6 +66,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>./4dm.h;./4dm.h/networking/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -83,6 +84,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalIncludeDirectories>./4dm.h;./4dm.h/networking/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -93,10 +95,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BlockReplaceFix.cpp" />
+    <ClCompile Include="ClientBlockUpdate.cpp" />
+    <ClCompile Include="InstaMiningFix.cpp" />
+    <ClCompile Include="NetworkingOptimization.cpp" />
+    <ClCompile Include="Daytime.cpp" />
+    <ClCompile Include="Health.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MovementUpdateFix.cpp" />
+    <ClCompile Include="NoPlants.cpp" />
+    <ClCompile Include="PlayerList.cpp" />
+    <ClCompile Include="Config.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="info.json5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="4DKeyBinds.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="Daytime.h" />
+    <ClInclude Include="Health.h" />
+    <ClInclude Include="ilerp.h" />
+    <ClInclude Include="JSONData.h" />
+    <ClInclude Include="PlayerList.h" />
+    <ClInclude Include="Sync.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

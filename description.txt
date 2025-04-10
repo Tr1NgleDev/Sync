@@ -1,0 +1,12 @@
+A Server/Client mod adding various server-client synchronization stuff and additional world save data.
+Includes:
+ - World Daytime Saving (with server-client daytime sync) (client, server, client-server) - Tr1NgleDev
+ - Player List (Y to open, supports 4DKeyBinds) (client-server) - Tr1NgleDev
+ - Server Health Sync (client-server) - ZiHEd
+ - Movement Update Fix (server) - Tr1NgleDev, Mashpoe
+ - Networking Optimization (client, server) - Tr1NgleDev
+ - Client-Side Block Update (client) - Tr1NgleDev
+ - Insta-Mining Fix (server) - Mashpoe
+ - Block-Replace Fix (client, server) - Tr1NgleDev
+ - No Plants At y0 (client, server) - Tr1NgleDev
+You can toggle all of those features/fixes in config.json.
