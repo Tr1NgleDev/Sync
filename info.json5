@@ -1,7 +1,7 @@
 {
   id: "tr1ngledev.sync",
   name: "Sync",
-  author: "Tr1NgleDev, ZiHEd",
+  author: "Tr1NgleDev, ZiHEd, Mashpoe",
   descriptionFile: "description.txt",
   version: "1.0",
   gameVersion: "0.2.1.4",

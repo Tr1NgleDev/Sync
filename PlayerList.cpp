@@ -80,16 +80,24 @@ $hook(void, WorldClient, destr_WorldClient)
 	original(self);
 }
 
-$hook(void, WorldClient, handleMessage, const Connection::InMessage& message, Player* player)
+$hook(void, WorldServer, handleMessage, const Connection::InMessage& message, double dt)
 {
-	if (!Config::playerList()) return original(self, message, player);
+	if (!Config::playerList()) return original(self, message, dt);
 
-	if (message.getPacketType() == Packet::S_CHAT_MESSAGE_SERVER || message.getPacketType() == Packet::S_CHAT_MESSAGE_PLAYER)
+	uint16_t packet = message.getPacketType();
+	if (packet == Packet::C_REJOIN || packet == Packet::C_JOIN)
 	{
-		PlayerList_requestPlayerList(self);
+		nlohmann::json j = nlohmann::json::array();
+
+		for (auto& player : self->players)
+		{
+			j.push_back(nlohmann::json{ { "entity", stl::uuid::to_string(player.second.player->EntityPlayerID) }, { "name", player.second.displayName } });
+		}
+
+		JSONData::broadcastPacket(self, S_PLAYER_LIST, j);
 	}
 
-	return original(self, message, player);
+	return original(self, message, dt);
 }
 
 // custom ui
@@ -133,7 +141,7 @@ $hook(void, Player, renderHud, GLFWwindow* window)
 
 	if (playerListOpen && playerListTime < 1.0)
 	{
-		playerListTime += dt;
+		playerListTime += dt / 0.5f;
 	}
 
 	glDepthMask(0);
@@ -212,7 +220,7 @@ $hook(void, Player, renderHud, GLFWwindow* window)
 		}
 
 		if (!playerListOpen)
-			playerListTime -= dt;
+			playerListTime -= dt / 0.5f;
 	}
 
 	lastW = w;

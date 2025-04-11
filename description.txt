@@ -1,4 +1,4 @@
-A Server/Client mod adding various server-client synchronization stuff and additional world save data.
+A Server/Client mod adding various net-code fixes, additional server-client synchronization etc.
 Includes:
  - World Daytime Saving (with server-client daytime sync) (client, server, client-server) - Tr1NgleDev
  - Player List (Y to open, supports 4DKeyBinds) (client-server) - Tr1NgleDev
