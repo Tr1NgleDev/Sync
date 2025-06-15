@@ -70,7 +70,8 @@ $hook(void, WorldClient, localPlayerEvent, Player* player, Packet::ClientPacket 
 		auto* itemBlock = (ItemBlock*)item.get();
 		uint8_t oldID = self->getBlock(player->targetPlaceBlock);
 		uint8_t newID = itemBlock->blockID;
-		if (oldID != newID)
+		if ((oldID != newID) &&
+			(oldID == BlockInfo::AIR || oldID == BlockInfo::LAVA || newID == BlockInfo::AIR))
 		{
 			//auto& update = updateData[player->targetPlaceBlock];
 			//update.newID = newID;
@@ -163,7 +164,7 @@ $hook(void, WorldClient, updateLocal, StateManager& s, Player* player, double dt
 	return original(self, s, player, dt);
 }
 
-$hook(void, WorldClient, handleWorldMessage, const Connection::InMessage& message, Player* player)
+$hook(bool, WorldClient, handleWorldMessage, const Connection::InMessage& message, Player* player)
 {
 	if (!Config::clientBlockUpdate()) return original(self, message, player);
 

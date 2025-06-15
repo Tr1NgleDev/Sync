@@ -1,15 +1,15 @@
 {
-  id: "tr1ngledev.sync",
-  name: "Sync",
-  author: "Tr1NgleDev, ZiHEd, Mashpoe",
-  descriptionFile: "description.txt",
-  version: "1.0",
-  gameVersion: "0.2.1.4",
-  modDLL: "4DMod.dll",
-  externalDLLs: [
-  ],
-  dependencies: {
-	"tr1ngledev.json-data": "before",
-	"tr1ngledev.4dkeybinds": "? before"
-  },
+	id: "tr1ngledev.sync",
+	name: "Sync",
+	author: "Tr1NgleDev, ZiHEd, Mashpoe",
+	descriptionFile: "description.txt",
+	version: "1.0.1",
+	gameVersion: "0.2.1.4",
+	modDLL: "4DMod.dll",
+	externalDLLs: [
+	],
+	dependencies: {
+		"tr1ngledev.json-data": "before",
+		"tr1ngledev.4dkeybinds": "? before"
+	},
 }

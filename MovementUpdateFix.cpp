@@ -27,10 +27,11 @@ $hook(void, WorldServer, handleMessage, const Connection::InMessage& message, do
 
 			if (c != nullptr)
 			{
-				nlohmann::json clientUpdate;
-				clientUpdate["entity"] = stl::uuid::to_string(player->EntityPlayerID);
+				nlohmann::json clientUpdate{};
+				clientUpdate["entity"] = (std::string)stl::uuid::to_string(player->EntityPlayerID);
 				clientUpdate["value"] = j;
-				Connection::OutMessage message{ Packet::S_PLAYER_MOVEMENT_UPDATE, clientUpdate.dump() };
+				stl::string msgData = clientUpdate.dump();
+				Connection::OutMessage message{ Packet::S_PLAYER_MOVEMENT_UPDATE, msgData };
 				self->sendMessageOtherPlayers(message, c, &playerInfo, false);
 			}
 
@@ -71,5 +72,5 @@ $hook(void, WorldServer, handleMessage, const Connection::InMessage& message, do
 
 		return;
 	}
-	original(self, message, dt);
+	return original(self, message, dt);
 }
