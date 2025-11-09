@@ -59,5 +59,5 @@ $hook(SteamNetworkingMessage_t*, Connection::OutMessage, createMessage, uint32_t
 {
 	if (!Config::netOptimization()) return original(self, recipient, sendFlags);
 	
-	return original(self, recipient, sendFlags != k_nSteamNetworkingSend_Reliable ? k_nSteamNetworkingSend_UnreliableNoNagle : k_nSteamNetworkingSend_Reliable);
+	return original(self, recipient, sendFlags != k_nSteamNetworkingSend_Reliable ? k_nSteamNetworkingSend_UnreliableNoNagle : k_nSteamNetworkingSend_ReliableNoNagle);
 }
