@@ -3,7 +3,7 @@
 	name: "Sync",
 	author: "Tr1NgleDev, ZiHEd, Mashpoe",
 	descriptionFile: "description.txt",
-	version: "1.0.3",
+	version: "1.0.4",
 	gameVersion: "0.2.1.4",
 	modDLL: "4DMod.dll",
 	externalDLLs: [
