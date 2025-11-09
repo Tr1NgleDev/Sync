@@ -54,3 +54,10 @@ $hook(void, WorldServer, updateBackend, double dt)
 
 	original(self, dt);
 }
+
+$hook(SteamNetworkingMessage_t*, Connection::OutMessage, createMessage, uint32_t recipient, int sendFlags)
+{
+	if (!Config::netOptimization()) return original(self, recipient, sendFlags);
+	
+	return original(self, recipient, sendFlags != k_nSteamNetworkingSend_Reliable ? k_nSteamNetworkingSend_UnreliableNoNagle : k_nSteamNetworkingSend_Reliable);
+}

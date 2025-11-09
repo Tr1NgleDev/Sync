@@ -14,7 +14,7 @@ nlohmann::json Config::config
 	{ "clientBlockUpdate", true },
 	{ "instaMiningFix", true },
 	{ "blockReplaceFix", true },
-	{ "noPlantsAtY0", true }
+	{ "noPlantsAtY0", true },
 };
 
 inline static void getToggle(const nlohmann::json& j, const std::string& key)
